@@ -1,0 +1,9 @@
+{
+  "name": "dio",
+  "version": "1.0.0",
+  "description": "dio automation tool base code",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+  }
+}

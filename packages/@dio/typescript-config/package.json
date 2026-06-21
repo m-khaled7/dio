@@ -1,0 +1,7 @@
+{
+  "name": "@dio/typescript-config",
+  "version": "1.0.0",
+  "exports":{
+    "./*":"./*"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "extends": "@dio/typescript-config/base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist"
+  },
+  "exclude": [
+    "node_modules",
+    "test",
+    "dist",
+    "**/*spec.ts",
+    ".prettierrc.mjs",
+    "eslint.config.mjs",
+    "jest.config.mjs",
+    "jest.config.ts"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "extends": "@dio/typescript-config/nestjs.json",
+  "compilerOptions": {
+    "types": ["node","jest"]
+  }
+}

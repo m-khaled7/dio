@@ -19,10 +19,20 @@
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.0.1",
     "@nestjs/platform-express": "^11.0.1",
+    "@opentelemetry/auto-instrumentations-node": "^0.77.0",
+    "@opentelemetry/exporter-logs-otlp-proto": "^0.219.0",
+    "@opentelemetry/exporter-metrics-otlp-proto": "^0.219.0",
+    "@opentelemetry/exporter-trace-otlp-proto": "^0.219.0",
+    "@opentelemetry/instrumentation-winston": "^0.63.0",
+    "@opentelemetry/sdk-logs": "^0.219.0",
+    "@opentelemetry/sdk-metrics": "^2.8.0",
+    "@opentelemetry/sdk-node": "^0.219.0",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "winston": "^3.19.0"
   },
   "devDependencies": {
     "@dio/eslint-config": "workspace:^",

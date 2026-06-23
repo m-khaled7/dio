@@ -1,14 +1,12 @@
-import { Injectable, LoggerService, OnModuleInit } from "@nestjs/common";
+import { Injectable, LoggerService } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import * as winston from "winston";
 
 @Injectable()
-export class Logger implements LoggerService, OnModuleInit {
+export class Logger implements LoggerService {
     private logger!: winston.Logger;
     private level!: string;
-    constructor(private readonly configService: ConfigService) {}
-
-    onModuleInit() {
+    constructor(private readonly configService: ConfigService) {
         this.level = this.configService.get("logger.level", "error");
         this.logger = winston.createLogger({
             level: this.level,
@@ -31,10 +29,9 @@ export class Logger implements LoggerService, OnModuleInit {
     private debugDevConsoleFormat() {
         return winston.format.combine(
             winston.format.timestamp({
-                format: this.timestampFormat
+                format: this.timestampFormat,
             }),
             this.color(),
-            winston.format.json(),
             winston.format.errors({ stack: true }),
             winston.format.printf(({ timestamp, level, message, context, stack }) => {
                 return stack
@@ -44,16 +41,16 @@ export class Logger implements LoggerService, OnModuleInit {
         );
     }
 
-    private timestampFormat(){
+    private timestampFormat() {
         return new Date().toLocaleString("en-US", {
-                        year: "numeric",
-                        month: "2-digit",
-                        day: "2-digit",
-                        hour: "numeric",
-                        minute: "2-digit",
-                        second: "2-digit",
-                        hour12: true, // Forces AM/PM notation
-                    })
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "numeric",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true, // Forces AM/PM notation
+        });
     }
 
     private color() {

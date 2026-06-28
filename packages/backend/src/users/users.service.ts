@@ -6,7 +6,7 @@ import { UserEntity } from "./entities/user.entity.js";
 import { FindOptionsWhere } from "typeorm";
 @Injectable()
 export class UsersService {
-    constructor(private readonly userRepository: UserRepository) {}
+    constructor(private readonly userRepository: UserRepository){}
 
     async create(registerDto: RegisterDto): Promise<Omit<UserEntity, "password">> {
         const userExist = await this.userRepository.findOneBy({ email: registerDto.email });

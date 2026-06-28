@@ -1,5 +1,5 @@
 import { NodeSDK } from "@opentelemetry/sdk-node";
-import { OTLPTraceExporter } from "@opentelemetry/exporter-trace-otlp-proto";
+import { OTLPTraceExporter } from "@opentelemetry/exporter-trace-otlp-http";
 import { OTLPMetricExporter } from "@opentelemetry/exporter-metrics-otlp-proto"; 
 import { PeriodicExportingMetricReader } from "@opentelemetry/sdk-metrics";
 import { BatchLogRecordProcessor } from "@opentelemetry/sdk-logs";
@@ -20,10 +20,10 @@ const sdk = new NodeSDK({
 
     instrumentations: [
         new WinstonInstrumentation(),
-        getNodeAutoInstrumentations({
+        getNodeAutoInstrumentations({      
             "@opentelemetry/instrumentation-fs": { enabled: false },
-        }),
+        })
     ],
 });
 
-sdk.start();
+if(process.env.NODE_ENV ==="production") sdk.start();

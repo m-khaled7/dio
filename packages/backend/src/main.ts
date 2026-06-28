@@ -1,4 +1,4 @@
-// import "./instrumentation.js"
+import "./instrumentation.js"
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module.js";
 import { Logger } from "./core/logger/logger.service.js";

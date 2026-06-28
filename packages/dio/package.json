@@ -1,5 +1,5 @@
 {
-    "name": "dio",
+    "name": "dio-base",
     "version": "1.0.0",
     "description": "dio automation tool base code",
     "type": "module",

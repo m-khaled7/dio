@@ -1,4 +1,4 @@
-import { IsEmail, IsString, MinLength, IsNotEmpty, Matches } from "class-validator";
+import { IsEmail, IsString, MinLength, IsNotEmpty, Matches, IsJWT } from "class-validator";
 import { Transform } from "class-transformer";
 import { NoXss } from "../../common/decorators/no-xss.decorator.js";
 import { ApiProperty, PickType } from "@nestjs/swagger";
@@ -33,3 +33,9 @@ export class RegisterDto {
 }
 
 export class LoginDto extends PickType(RegisterDto,['email','password']){}
+
+export class RefreshDto {
+    @ApiProperty()
+    @IsJWT()
+    refreshToken:string
+}

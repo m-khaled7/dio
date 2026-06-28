@@ -1,5 +1,5 @@
 export default {
-    level:"info",
+    level:"debug",
     outputs:["console"],
-    colored:true 
+    format:"" 
 }
